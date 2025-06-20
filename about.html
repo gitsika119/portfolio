@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gitika | Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!--  Sidebar (25% width) -->
+<aside class="sidebar">
+  <div class="sidebar-box">
+    <img src="assets/current.png" alt="intro" class="card-img" />
+  </div>
+  <div class="sidebar-box">
+    <img src="assets/resume.png" alt="Resume" class="card-img" />
+    <a href="assets/Gitika_Saini_Resume.pdf" download>
+      <button class="resume-btn">Download</button>
+    </a>
+  </div>
+  <div class="socials">
+    <a href="https://instagram.com/notbenzenerings" target="_blank">
+      <img src="assets/ig.png" alt="Instagram" />
+    </a>
+    <a href="https://github.com/gitsika119" target="_blank">
+      <img src="assets/git.png" alt="GitHub" />
+    </a>
+    <a href="https://linkedin.com/in/gitika-saini" target="_blank">
+      <img src="assets/linkedin.png" alt="LinkedIn" />
+    </a>
+  </div>
+
+  <div class="sidebar-box">
+    <img src="assets/misc.png" alt="Misc" class="card-img" />
+    <a href="https://vsco.co/gitsika" target="_blank">
+      <img src="assets/vscobtn.png" alt="VSCO" class="vsco-btn" style="width: 154px; height: 105px;"/>
+    </a>
+  </div>
+
+</aside>
+
+  <!--  Top Right Menu -->
+  <nav class="top-menu">
+    <img src="assets/home.png" alt="Home" onclick="window.location.href='index.html'" />
+    <img src="assets/about.png" alt="About" onclick="window.location.href='about.html'" />
+  </nav>
+
+ <main class="about-layout">
+
+    <!-- Middle Text Container -->
+    <section class="about-panel" id="about-content">
+      <!-- This content will change -->
+      <div class="about-box" id="dynamic-content">
+        <h1>Summary</h1><br>
+        <b>
+          <p>Hi! I am Gitika, a third year Computer Engineering major pursuing minors in Cyber Security and Economics. My interests are vast and varied - I like sketching (<a href="https://www.instagram.com/notbenzenerings" target="_blank">♡</a>), playing basketball (even though I'm 5'2), reading(a lot), drinking coffee(a lot), listening to music (a lot), watching anime (a fair bit) & coding (when I want to) which I'm sure will reflect on this portfolio as well.</p> <br>
+          <p>Professionally, I aspire to work in cybersecurity or software engineering. I've interned at Tripletech in Mauritius, completed the Google Cybersecurity Certificate, and participated in the Nittany AI Machine Learning Bootcamps. I've applied my skills in everything from building object classification models to front-end web apps and reinforcement learning projects - check them out on my <a href="https://www.github.com/gitsika119" target="_blank"> GitHub</a>!</p><br>
+          <p>Academically, I’ve made the Dean’s List each semester, even while taking the max course load of 18-19 credits. When I'm not pondering about my dismal marks (never, I need to start pondering), I'm either working (formerly as a Learning Assistant and Food Services Employee, and currently as a Tutor and Resident Assistant), engaged in club activities (as Director of HackPSU, Officer in ACM or member in AWC) or grabbing bank-breaking($20 max.) lunch and/or coffee Downtown.</p><br>
+          <p>I don't think I could summarize everything I am, the more I write the more there is to write; I hope that this portfolio gives you an idea of who I am - as a person and employee - and makes you want to know me better and give me an opportunity to work towards my very ambitious aspirations. :)</p><br>
+          <p>- Gitika Saini</p></b> 
+      </div>
+    </section>
+
+    <!-- Right Button Stack -->
+    <aside class="about-buttons">
+      <img src="assets/summary.png" alt="About" onclick="showContent('about')" class="tab-button" />
+      <img src="assets/skill.png" alt="Skills" onclick="showContent('skills')" class="tab-button" />
+      <img src="assets/spco.png" alt="Fun Stuff" onclick="showContent('links')" class="tab-button" />
+    </aside>
+
+  </main>
+  <script>
+    function showContent(type) {
+      const container = document.getElementById("dynamic-content");
+
+      if (type === "about") {
+        container.innerHTML = `
+          <h1>Summary</h1><br>
+          <b>
+          <p>Hi! I am Gitika, a third year Computer Engineering major pursuing minors in Cyber Security and Economics. My interests are vast and varied - I like sketching (<a href="https://www.instagram.com/notbenzenerings" target="_blank">♡</a>), playing basketball (even though I'm 5'2), reading(a lot), drinking coffee(a lot), listening to music (a lot), watching anime (a fair bit) & coding (when I want to) which I'm sure will reflect on this portfolio as well.</p> <br>
+          <p>Professionally, I aspire to work in cybersecurity or software engineering. I've interned at Tripletech in Mauritius, completed the Google Cybersecurity Certificate, and participated in the Nittany AI Machine Learning Bootcamps. I've applied my skills in everything from building object classification models to front-end web apps and reinforcement learning projects - check them out on my <a href="https://www.github.com/gitsika119" target="_blank"> GitHub</a>!</p><br>
+          <p>Academically, I’ve made the Dean’s List each semester, even while taking the max course load of 18-19 credits. When I'm not pondering about my dismal marks (never, I need to start pondering), I'm either working (formerly as a Learning Assistant and Food Services Employee, and currently as a Tutor and Resident Assistant), engaged in club activities (as Director of HackPSU, Officer in ACM or member in AWC) or grabbing bank-breaking($20 max.) lunch and/or coffee Downtown.</p><br>
+          <p>I don't think I could summarize everything I am, the more I write the more there is to write; I hope that this portfolio gives you an idea of who I am - as a person and employee - and makes you want to know me better and give me an opportunity to work towards my very ambitious aspirations. :)</p><br>
+          <p>- Gitika Saini</p></b> 
+        `;
+      } else if (type === "skills") {
+        container.innerHTML = `
+          <h1>Skills</h1><br>
+          <h3>Technical</h3>
+          <ul>
+            <li><b>Programming Languages:</b> Python, C++, Java, JavaScript, HTML/CSS, SQL, Bash</li>
+            <li><b>Tools & Frameworks:</b> Git, Linux, MySQL, SIEM tools, IDS systems, Jupyter, VS Code</li>
+            <li><b>Machine Learning:</b> CNNs, RAG, Reinforcement Learning, Logistic and Linear regression, K-means</li>
+            <li><b>Cybersecurity:</b> Network diagnostics, Google Cybersecurity Professional Certificate</li>
+            <li><b>Web Development:</b> Front end development with HTML, CSS, JavaScript (Projects: <a href="https://github.com/gitsika119/ToDooze" target="_blank">ToDooze, </a><a href="https://github.com/gitsika119/Sidequesting" target="_blank">Sidequesting</a>) </li>
+          </ul><br>
+          <h3>Design</h3>
+          <ul>
+            <li><b>Tools:</b> Figma, Canva, Adobe Illustrator</li></ul><br>
+          <h3>Soft Skills</h3>
+          <ul>
+            <li>Communication & Teaching (Resident Assistant, Learning Assistant, Tutor)</li>
+            <li>Leadership (HackPSU Director, ACM Officer)</li>
+            <li>Time Management </li>
+            <li>Cross-Cultural Collaboration (Tripletech Internship, GELE, Global Boarders LLC)</li>
+          </ul>
+        `;
+      } else if (type === "links") {
+        container.innerHTML = `
+          <iframe style="border-radius:0px" src="https://open.spotify.com/embed/playlist/4LVuqrI9pCJlFhs9HZsk9Y?utm_source=generator&theme=0" width="100%" height="460" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
+      }
+    }
+  </script>
+</body>
+</html>
