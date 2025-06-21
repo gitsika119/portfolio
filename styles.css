@@ -11,6 +11,9 @@ body {
   background: url('assets/bg.png') no-repeat center center fixed;
   background-size: cover;
   display: flex;
+  min-width: 1024px;
+  overflow-x: auto;
+
 }
 
 /* === Sidebar === */
