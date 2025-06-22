@@ -7,7 +7,10 @@
 .container {
   display: flex;
   width: 100%;
-  min-width: 1024px;
+}
+html, body {
+  width: 100%;
+  overflow-x: hidden;
 }
 
 /* === Body and Background === */
@@ -16,7 +19,6 @@ body {
   background: url('assets/bg.jpg') no-repeat center center fixed;
   background-size: cover;
   display: flex;
-  min-width: 1024px;
   overflow-x: auto;
 }
 
@@ -45,6 +47,7 @@ body {
 .sidebar img {
   width: 100%;
   max-width: 250px;
+  height: auto;
 }
 
 .socials {
@@ -95,21 +98,19 @@ body {
 }
 
 /* Default (Full Screen) */
-.vsco-btn {
+img.vsco-btn {
   position: absolute;
   bottom: 50px;
-  left: 50%;
+  left: 52%;
   transform: translateX(-50%);
-  width: 154px;
-  height: 105px;
+  width: 140px;               /* more balanced size */
+  height: auto;               /* allow natural height */
   cursor: pointer;
+  z-index: 10;
   transition: transform 0.2s ease;
-  display: block;
-  padding: 0;
-  margin: 0;
+  background: none;
   border: none;
-  object-fit: contain;
-  image-rendering: auto;
+  filter: drop-shadow(0 0 0 transparent);
 }
 
 .vsco-btn:hover {
@@ -227,62 +228,66 @@ body {
 }
 
 @media (max-width: 992px) {
+  body {
+    overflow-x: hidden;
+  }
+
   .container {
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
+    width: 100%;
   }
 
   .sidebar {
     position: relative;
     width: 100%;
     height: auto;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 10px;
+    display: flex;
+    flex-direction: row;         /* ☑️ Items in a row */
+    flex-wrap: nowrap;           /* ☑️ Prevent wrap */
+    overflow-x: auto;            /* ☑️ Scroll if too wide */
+    gap: 20px;
+    padding: 15px 20px;
     background-size: cover;
+    scrollbar-width: none;       /* Firefox hide scroll */
+  }
+
+  .sidebar::-webkit-scrollbar {
+    display: none;               /* Chrome/Safari hide scroll */
   }
 
   .sidebar-box {
+    flex: 0 0 auto;              /* ☑️ Prevent shrinking */
     max-width: 200px;
-    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sidebar img {
+    max-width: 100%;
+    height: auto;
   }
 
   .socials {
     flex-direction: column;
     align-items: center;
+    gap: 10px;
     margin-top: 10px;
-    margin-right: 0;
   }
 
-  .socials img {
-    width: 40px;
-  }
-
-  .resume-btn {
-    padding: 10px 16px;
-    font-size: 0.7rem;
-    bottom: 12px;
+  .resume-btn, .vsco-btn {
+    position: static;
+    transform: none;
+    margin-top: 10px;
   }
 
   .vsco-btn {
-    width: 100px;
-    height: auto;
-  }
-
-  .top-menu {
-    top: 0;
-    right: 10px;
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  .top-menu img {
-    width: 60px;
-    height: 35px;
+    width: 90px;
   }
 
   .timeline {
+    width: 100%;
     margin-left: 0;
     padding: 60px 20px;
   }
@@ -300,40 +305,240 @@ body {
   .year-block img[alt="2022"] {
     max-width: 360px;
   }
+
+  .about-layout {
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0;
+    width: 100%;
+    padding: 40px 20px;
+    gap: 30px;
+  }
+
+  .about-panel {
+    width: 100%;
+    padding: 20px;
+    max-width: 800px;
+  }
+
+  .about-buttons {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    order: 1; /* ⬇️ Appears below about content */
+  }
+
+  .tab-button {
+    width: 90px;
+  }
 }
 
+
 @media (max-width: 600px) {
-  .sidebar-box {
-    max-width: 150px;
+  .tab-button {
+    width: 70px;
+  }
+
+  .vsco-btn {
+    width: 60px;
+  }
+
+  .resume-btn {
+    font-size: 0.65rem;
+    padding: 8px 12px;
   }
 
   .top-menu img {
     width: 50px;
     height: 30px;
   }
-
-  .year-block {
-    margin: 50px 0;
-  }
-
-  .year-block img {
-    max-width: 240px;
-  }
-
-  .year-block img[alt="2023"],
-  .year-block img[alt="2022"] {
-    max-width: 300px;
-  }
-
-  .resume-btn {
-    padding: 8px 12px;
-    font-size: 0.65rem;
-  }
-
-  .vsco-btn {
-    width: 60px;
-  }
 }
+/* === Hamburger Button === */
+.hamburger {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 2000;
+  font-size: 28px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@media (max-width: 992px) {
+  .sidebar-box img.card-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+}
+
+  .hamburger {
+    display: block;
+    font-size: 20px;        /* smaller symbol size */
+    padding: 6px 10px;      /* smaller button size */
+    border-radius: 4px; 
+  }
+
+  .sidebar {
+    position: fixed;
+    left: -300px; /* hide it off-screen */
+    top: 0;
+    width: 280px;
+    height: 100vh;
+    background: url('assets/sidebarbg.png') no-repeat center center;
+    background-size: cover;
+    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    z-index: 1500;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+
+  .timeline, .about-layout {
+    margin-left: 0;
+    padding: 80px 20px;
+    width: 100%;
+  }
+
+  .top-menu {
+    right: 20px;
+    top: 20px;
+  }
+
+  .about-layout {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .about-buttons {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    order: 1;
+  }
+
+  .tab-button {
+    width: 90px;
+  }
+  /* === Overlay Behind Sidebar === */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+}
+
+.sidebar.open + .overlay {
+  display: block;
+}
+.resume-btn, .vsco-btn {
+  position: static !important;   /* 🚫 cancel absolute positioning */
+  transform: none !important;    /* 🚫 cancel translate */
+  margin-top: 10px;              /* ✅ space from image */
+  display: block;
+  width: fit-content;
+  align-self: center;
+}
+.sidebar-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.socials {
+  display: flex;
+  flex-direction: row;    /* make socials horizontal */
+  justify-content: center;
+  gap: 15px;             /* spacing between icons */
+  margin-top: 10px;
+  margin-right: 0;
+}
+.socials img {
+  width: 40px;            /* smaller icon size */
+  height: 40px;           /* keep square */
+  transition: transform 0.2s ease;
+}
+.sidebar-box {
+  position: relative; /* make container relative for absolute positioning inside */
+  max-width: 280px;   /* keep consistent sizing */
+  margin: 10px auto;
+}
+
+.resume-btn, .vsco-btn {
+  position: absolute !important; /* absolutely position over image */
+  bottom: 18px;                  /* distance from bottom of image */
+  left: 25%;                    /* center horizontally */
+  transform: translateX(-50%);
+  background: rgba(50, 50, 50, 0.85);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  z-index: 10;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  display: block;
+  width: fit-content;
+  text-align: center;
+}
+
+.resume-btn:hover {
+  background-color: black;
+  transform: translateX(-50%) scale(1.05);
+}
+
+/* For the VSCO button which is an img */
+img.vsco-btn {
+  position: absolute !important;
+  bottom: 60px;     /* ⬆ move up */
+  left: 21%;        /* ⬅ shift left */
+  transform: translateX(-50%);
+  width: 154px;
+  height: 105px;
+  height: auto;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.2s ease;
+  filter: drop-shadow(0 0 0 transparent);
+  background: none;
+  border: none;
+}
+
+img.vsco-btn:hover {
+  transform: translateX(-50%) scale(1.05);
+  filter: brightness(1.1); /* subtle effect without adding borders */
+}
+}
+
 
 @media (max-width: 1024px) {
   .vsco-btn {

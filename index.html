@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gitika | Portfolio</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -36,12 +36,13 @@
       <img src="assets/vscobtn.png" alt="VSCO" class="vsco-btn" />
     </a>
   </div>
-
 </aside>
+<div class="overlay" onclick="toggleSidebar()"></div>
 
 
   <!--  Top Right Menu -->
   <nav class="top-menu">
+    <button class="hamburger" onclick="toggleSidebar()">☰</button>
     <img src="assets/home.png" alt="Home" onclick="window.location.href='index.html'" />
     <img src="assets/about.png" alt="About" onclick="window.location.href='about.html'" />
   </nav>
@@ -62,5 +63,43 @@
     <section class="year-block left" ><img src="assets/2010.png" alt="2010" style="transform: rotate(-5deg);" /></section>
   </div>
   </main>
+  <script>
+    function toggleSidebar() {
+    const sidebar = document.querySelector(".sidebar");
+    const overlay = document.querySelector(".overlay");
+
+    const isOpen = sidebar.classList.toggle("open");
+    overlay.style.display = isOpen ? "block" : "none";
+  }
+
+  // Close sidebar when clicking outside of it
+  document.addEventListener("click", (e) => {
+    const sidebar = document.querySelector(".sidebar");
+    const overlay = document.querySelector(".overlay");
+
+    if (
+      sidebar.classList.contains("open") &&
+      !sidebar.contains(e.target) && // click happened outside sidebar
+      !e.target.classList.contains("hamburger") // ignore hamburger button
+    ) {
+      sidebar.classList.remove("open");
+      overlay.style.display = "none";
+    }
+  });
+
+  // Optional: Close with Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      const sidebar = document.querySelector(".sidebar");
+      const overlay = document.querySelector(".overlay");
+      if (sidebar.classList.contains("open")) {
+        sidebar.classList.remove("open");
+        overlay.style.display = "none";
+      }
+    }
+  });
+
+</script>
+
 </body>
 </html>
