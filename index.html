@@ -79,8 +79,8 @@
 
     if (
       sidebar.classList.contains("open") &&
-      !sidebar.contains(e.target) && // click happened outside sidebar
-      !e.target.classList.contains("hamburger") // ignore hamburger button
+      !sidebar.contains(e.target) && 
+      !e.target.classList.contains("hamburger") 
     ) {
       sidebar.classList.remove("open");
       overlay.style.display = "none";

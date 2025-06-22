@@ -103,8 +103,8 @@ img.vsco-btn {
   bottom: 50px;
   left: 52%;
   transform: translateX(-50%);
-  width: 140px;               /* more balanced size */
-  height: auto;               /* allow natural height */
+  width: 140px;              
+  height: auto;              
   cursor: pointer;
   z-index: 10;
   transition: transform 0.2s ease;
@@ -243,21 +243,21 @@ img.vsco-btn {
     width: 100%;
     height: auto;
     display: flex;
-    flex-direction: row;         /* ☑️ Items in a row */
-    flex-wrap: nowrap;           /* ☑️ Prevent wrap */
-    overflow-x: auto;            /* ☑️ Scroll if too wide */
+    flex-direction: row;         
+    flex-wrap: nowrap;          
+    overflow-x: auto;           
     gap: 20px;
     padding: 15px 20px;
     background-size: cover;
-    scrollbar-width: none;       /* Firefox hide scroll */
+    scrollbar-width: none;       
   }
 
   .sidebar::-webkit-scrollbar {
-    display: none;               /* Chrome/Safari hide scroll */
+    display: none;               
   }
 
   .sidebar-box {
-    flex: 0 0 auto;              /* ☑️ Prevent shrinking */
+    flex: 0 0 auto;              
     max-width: 200px;
     display: flex;
     flex-direction: column;
@@ -329,7 +329,7 @@ img.vsco-btn {
     width: 100%;
     padding: 0;
     margin: 0;
-    order: 1; /* ⬇️ Appears below about content */
+    order: 1; 
   }
 
   .tab-button {
@@ -383,14 +383,14 @@ img.vsco-btn {
 
   .hamburger {
     display: block;
-    font-size: 20px;        /* smaller symbol size */
-    padding: 6px 10px;      /* smaller button size */
+    font-size: 20px;        
+    padding: 6px 10px;     
     border-radius: 4px; 
   }
 
   .sidebar {
     position: fixed;
-    left: -300px; /* hide it off-screen */
+    left: -300px; 
     top: 0;
     width: 280px;
     height: 100vh;
@@ -460,9 +460,9 @@ img.vsco-btn {
   display: block;
 }
 .resume-btn, .vsco-btn {
-  position: static !important;   /* 🚫 cancel absolute positioning */
-  transform: none !important;    /* 🚫 cancel translate */
-  margin-top: 10px;              /* ✅ space from image */
+  position: static !important;  
+  transform: none !important; 
+  margin-top: 10px;              
   display: block;
   width: fit-content;
   align-self: center;
@@ -475,27 +475,27 @@ img.vsco-btn {
 }
 .socials {
   display: flex;
-  flex-direction: row;    /* make socials horizontal */
+  flex-direction: row;  
   justify-content: center;
-  gap: 15px;             /* spacing between icons */
+  gap: 15px;             
   margin-top: 10px;
   margin-right: 0;
 }
 .socials img {
-  width: 40px;            /* smaller icon size */
-  height: 40px;           /* keep square */
+  width: 40px;           
+  height: 40px;          
   transition: transform 0.2s ease;
 }
 .sidebar-box {
-  position: relative; /* make container relative for absolute positioning inside */
-  max-width: 280px;   /* keep consistent sizing */
+  position: relative; 
+  max-width: 280px;  
   margin: 10px auto;
 }
 
 .resume-btn, .vsco-btn {
-  position: absolute !important; /* absolutely position over image */
-  bottom: 18px;                  /* distance from bottom of image */
-  left: 25%;                    /* center horizontally */
+  position: absolute !important; 
+  bottom: 18px;                
+  left: 25%;                   
   transform: translateX(-50%);
   background: rgba(50, 50, 50, 0.85);
   color: white;
@@ -516,11 +516,10 @@ img.vsco-btn {
   transform: translateX(-50%) scale(1.05);
 }
 
-/* For the VSCO button which is an img */
 img.vsco-btn {
   position: absolute !important;
-  bottom: 60px;     /* ⬆ move up */
-  left: 21%;        /* ⬅ shift left */
+  bottom: 60px;     
+  left: 21%;        
   transform: translateX(-50%);
   width: 154px;
   height: 105px;
@@ -535,7 +534,7 @@ img.vsco-btn {
 
 img.vsco-btn:hover {
   transform: translateX(-50%) scale(1.05);
-  filter: brightness(1.1); /* subtle effect without adding borders */
+  filter: brightness(1.1); 
 }
 }
 

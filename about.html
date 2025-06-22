@@ -128,14 +128,13 @@
     if (
       sidebar.classList.contains("open") &&
       !sidebar.contains(e.target) && // click happened outside sidebar
-      !e.target.classList.contains("hamburger") // ignore hamburger button
+      !e.target.classList.contains("hamburger") 
     ) {
       sidebar.classList.remove("open");
       overlay.style.display = "none";
     }
   });
 
-  // Optional: Close with Escape key
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       const sidebar = document.querySelector(".sidebar");
