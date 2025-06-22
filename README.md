@@ -1,5 +1,5 @@
 # Summer '25 Project - Portfolio
-
+Check it out [here](https://gitsika119.github.io/portfolio/)!
 ## Portfolio Features
 This responsive portfolio web app is designed to showcase my creative and technical work in a visually engaging way. It includes:
 - A vertical collage-art timeline highlighting key (or not so key) years in my life from 2010 to 2025
