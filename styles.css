@@ -16,7 +16,7 @@ html, body {
 /* === Body and Background === */
 body {
   font-family: sans-serif;
-  background: url('assets/bg.jpg') no-repeat center center fixed;
+  background: url('assets/bg.webp') no-repeat center center fixed;
   background-size: cover;
   display: flex;
   overflow-x: auto;
@@ -29,7 +29,7 @@ body {
   top: 0;
   width: 280px;
   height: 100vh;
-  background: url('assets/sidebarbg.png') no-repeat center center;
+  background: url('assets/sidebarbg.webp') no-repeat center center;
   background-size: cover;
   padding: 20px;
   display: flex;
@@ -394,7 +394,7 @@ img.vsco-btn {
     top: 0;
     width: 280px;
     height: 100vh;
-    background: url('assets/sidebarbg.png') no-repeat center center;
+    background: url('assets/sidebarbg.webp') no-repeat center center;
     background-size: cover;
     padding: 20px;
     flex-direction: column;
